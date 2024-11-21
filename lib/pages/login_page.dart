@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -29,21 +29,43 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
     //try sign in
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-credenitals') {
-        print('Wrong password provided for that user.');
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text,);
+
+    } on FirebaseAuthException catch(e){
+      if(e.code == 'user-not-found'){
+        wrongEmailMessage();
+        Navigator.pop(context);
+      } else if(e.code == 'wrong-password'){
+        wrongPasswordMessage();
+        Navigator.pop(context);
       }
     }
+    }
+  }
 
-    //pop laoding circle
-    Navigator.pop(context);
+  // wrong email message popup
+  void wrongEmailMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Incorrect Email"),
+        );
+      },
+    );
+  }
+
+  //wrong password message popup
+  void wrongPasswordMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text("Incorrect Password"),
+        );
+      },
+    );
   }
 
   @override
@@ -165,7 +187,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Not a member?   "),
+                      Text("Not a user?   "),
                       GestureDetector(
                         onTap: () {},
                         child: Text(
