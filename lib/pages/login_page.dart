@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  // wrong email message popup
+  // wrong email message
   void wrongEmailMessage() {
     showDialog(
       context: context,
