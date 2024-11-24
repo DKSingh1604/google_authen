@@ -93,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                   style: TextStyle(fontSize: 16),
                 ),
 
-                const SizedBox(height: 50),
+                // const SizedBox(height: 50),
 
                 //email textfield
                 MyTextfield(
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
 
-                SizedBox(height: 40),
+                // SizedBox(height: 40),
 
                 //sign in button
                 MyButton(
