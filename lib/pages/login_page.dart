@@ -145,6 +145,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Text("Or continue with"),
+                    
                     Expanded(
                       child: Divider(
                         thickness: 0.5,
