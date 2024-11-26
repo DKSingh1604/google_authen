@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 SizedBox(height: 40),
 
-                //google + apple sign in buttons
+                //google + apple sign in 
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
