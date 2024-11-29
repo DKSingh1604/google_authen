@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
         child: CircularProgressIndicator(),
       ),
     );
-    //try to sign in
+    //try to signing in
     try{
       await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text,);
 
